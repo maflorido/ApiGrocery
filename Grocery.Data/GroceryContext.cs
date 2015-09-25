@@ -7,7 +7,7 @@ namespace Grocery.Data
     public class GroceryContext : DbContext
     {
         public GroceryContext()
-            : base()
+            : base("Contexto")
         {
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = true;
