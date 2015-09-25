@@ -8,6 +8,11 @@ namespace Grocery.Domain.Entities
 {
     public class Produto
     {
+        protected Produto()
+        {
+
+        }
+
         public Produto(long id, string nome, double valor)
         {
             this.Id = id;
