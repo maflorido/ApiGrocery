@@ -6,5 +6,9 @@
         return $http.get(urlBase);
     };
 
+    GroceryService.Novo = function () {
+        return $http.post(urlBase + "/", this.objeto);
+    };
+
     return GroceryService;
 }]);
