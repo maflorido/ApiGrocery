@@ -2,6 +2,7 @@
 using Grocery.WebApp.Models;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Mvc;
 
 namespace Grocery.WebApp.Controllers
 {
@@ -9,12 +10,12 @@ namespace Grocery.WebApp.Controllers
     {
         private UnitOfWork contexto;
 
-        public GroceryShopController(UnitOfWork contexto)
+        public GroceryShopController()
         {
-            this.contexto = contexto;
+            this.contexto = DependencyResolver.Current.GetService<UnitOfWork>();
         }
 
-        [HttpGet]
+        [System.Web.Http.HttpGet]
         public IList<ProdutoViewModel> GetAll()
         {
             var produtos = contexto.ProdutoRepository.Listar();
