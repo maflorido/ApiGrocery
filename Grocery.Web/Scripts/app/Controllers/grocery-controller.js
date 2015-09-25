@@ -7,6 +7,7 @@
 
     function GetProducts() {
         GroceryService.GetProducts().success(function (pl) {
+            console.log(pl);
             $scope.produtos = pl
         },
         function (errorPl) {
