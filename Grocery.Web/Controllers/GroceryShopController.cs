@@ -1,4 +1,5 @@
-﻿using Grocery.WebApp.Models;
+﻿using Grocery.Data;
+using Grocery.WebApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,19 @@ namespace Grocery.WebApp.Controllers
 {
     public class GroceryShopController : ApiController
     {
+        private UnitOfWork contexto;
+
+        public GroceryShopController(UnitOfWork contexto)
+        {
+            this.contexto = contexto;
+        }
 
         [HttpGet]
-        public IList<Produto> GetAll()
+        public IList<ProdutoViewModel> GetAll()
         {
-            return Produtos;
+            var produtos = contexto.ProdutoRepository.Listar();
+
+            return ProdutoViewModel.ListarProdutosViewModel(produtos);
         }
 
     }

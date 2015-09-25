@@ -8,11 +8,16 @@ using System.Linq.Expressions;
 
 namespace Grocery.Repository
 {
-    public abstract class GenericRepository<T> : IGenericRepository<T> 
+    public class GenericRepository<T> : IGenericRepository<T>
         where T : class
     {
-        private GroceryContext dbContext = new GroceryContext();
+        private GroceryContext dbContext;
 
+        public GenericRepository(GroceryContext context)
+        {
+            this.dbContext = context;
+        }
+         
         public void Editar(T objeto)
         {
             this.dbContext.Entry(objeto).State = EntityState.Modified;
@@ -36,7 +41,7 @@ namespace Grocery.Repository
             this.dbContext.Set<T>().Add(objeto);
         }
 
-        public List<T> Listar()
+        public IList<T> Listar()
         {
             return this.dbContext.Set<T>().ToListAsync().Result;
         }
@@ -45,5 +50,6 @@ namespace Grocery.Repository
         {
             return this.dbContext.Set<T>().FindAsync(id).Result;
         }
+        
     }
 }

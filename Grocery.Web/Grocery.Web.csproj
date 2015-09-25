@@ -930,7 +930,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -962,6 +962,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Grocery.Domain\Grocery.Domain.csproj">
+      <Project>{4ac397be-4584-479d-a619-d7e8262f497f}</Project>
+      <Name>Grocery.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Grocery.Repository\Grocery.Repository.csproj">
+      <Project>{aaf5ef08-dd6c-46ca-aad0-ed3ffc7606ea}</Project>
+      <Name>Grocery.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
