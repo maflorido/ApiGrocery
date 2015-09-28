@@ -1,6 +1,9 @@
 ﻿using Grocery.Data;
 using Grocery.WebApp.Models;
+using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 
@@ -21,6 +24,21 @@ namespace Grocery.WebApp.Controllers
             var produtos = contexto.ProdutoRepository.Listar();
 
             return ProdutoViewModel.ListarProdutosViewModel(produtos);
+        }
+
+        [System.Web.Http.HttpPost]
+        public ProdutoViewModel Post(ProdutoViewModel produtoViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                this.contexto.ProdutoRepository.Incluir(produtoViewModel.ToEntityProduto());
+                this.contexto.Save();
+
+                return produtoViewModel;
+            }
+
+            return null;
+
         }
 
     }

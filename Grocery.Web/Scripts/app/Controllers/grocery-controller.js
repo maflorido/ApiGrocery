@@ -15,10 +15,9 @@
             Nome: self.nome,
             Valor: self.valor
         };
-
-        GroceryService.Novo().success(function (data) {
-            alert("Produto incuído!");            
-            $scope.produtos.push(data);            
+        GroceryService.Novo(objeto).success(function (data) {
+            alert("Produto incuído!");
+            $location.path("/");
         }).error(function (data) {
             $scope.error = "Erro ao inserir!" + data;
         });

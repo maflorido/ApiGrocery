@@ -8,6 +8,11 @@ namespace Grocery.WebApp.Models
 {
     public class ProdutoViewModel
     {
+        public ProdutoViewModel()
+        {
+
+        }
+
         public ProdutoViewModel(long id, string nome, double valor)
         {
             this.Id = id;
@@ -25,6 +30,11 @@ namespace Grocery.WebApp.Models
         public static IList<ProdutoViewModel> ListarProdutosViewModel(IList<Produto> produtos)
         {
             return produtos.Select(x => new ProdutoViewModel(x.Id, x.Nome, x.Valor)).ToList();
+        }
+
+        public Produto ToEntityProduto()
+        {
+            return new Produto(this.Id, this.Nome, this.Valor);
         }
 
     }
