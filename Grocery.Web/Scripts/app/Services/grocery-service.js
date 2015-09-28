@@ -7,9 +7,11 @@
     };
 
     GroceryService.Novo = function (objeto) {
-
-        console.log(objeto);
         return $http.post(urlBase + "/", objeto);
+    };
+
+    GroceryService.Remover = function (id) {
+        return $http.delete(urlBase + "/" + id);
     };
 
     return GroceryService;

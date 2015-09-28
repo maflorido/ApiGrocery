@@ -2,11 +2,14 @@
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Country</th>
+        <th colspan="2">Country</th>
     </tr>
     <tr ng-repeat="prod in produtos">
         <td>{{prod.Id}}</td>
         <td>{{prod.Nome}}</td>
         <td>{{prod.Valor}}</td>
+        <td>
+            <a href="" ng-click="ctrl.Remover(prod)">Excluir</a>
+        </td>
     </tr>
 </table>

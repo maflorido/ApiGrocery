@@ -1,4 +1,5 @@
 ﻿using Grocery.Data;
+using Grocery.Domain.Entities;
 using Grocery.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,16 @@ namespace Grocery.WebApp.Controllers
             }
 
             return null;
+
+        }
+        
+        [System.Web.Http.HttpDelete]
+        public void Delete(int id)
+        {
+            Produto produto = this.contexto.ProdutoRepository.Obter(id);
+
+            this.contexto.ProdutoRepository.Excluir(produto);
+            this.contexto.Save();
 
         }
 

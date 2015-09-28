@@ -23,6 +23,12 @@
         });
     }
 
+    self.Remover = function (produto) {
+        GroceryService.Remover(produto.Id).success(function (data) {
+            alert("Produto excluído com sucesso!");
+        });
+    }
+
     function GetProducts() {
         GroceryService.GetProducts().success(function (pl) {
             $scope.produtos = pl
