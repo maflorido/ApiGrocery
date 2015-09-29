@@ -5,10 +5,10 @@ app.factory("ShareData", function () {
 });
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    $routeProvider.when('/',
+    $routeProvider.when('/listar',
                         {
                             templateUrl: '/paginas/ListaProdutos.html',
-                            controller: 'groceryController'
+                            controller: 'groceryController'                            
                         });
 
     $routeProvider.when('/cadastro',

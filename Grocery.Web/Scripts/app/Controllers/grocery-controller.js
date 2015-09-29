@@ -2,7 +2,7 @@
     var self = this;
     
     self.Listar = function () {
-        $location.path("/");
+        $location.path("/listar");
         GetProducts();        
     }
 
