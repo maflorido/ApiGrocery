@@ -19,6 +19,8 @@
     };
 
     GroceryService.Salvar = function (objeto) {
+        console.log(objeto);
+
         return $http.put(urlBase + "/" + objeto);
     }
 

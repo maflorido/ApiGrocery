@@ -20,9 +20,10 @@
     }
 
     self.PostEditar = function () {
+
         var objeto = {
-            Nome: self.nome,
-            Valor: self.valor
+            Nome: $scope.produto.Nome,
+            Valor: $scope.produto.Valor
         };
 
         GroceryService.Salvar(objeto).success(function (data) {
