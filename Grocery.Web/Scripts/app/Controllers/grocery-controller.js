@@ -29,6 +29,8 @@
             alert('Produto editado.')
             GetProducts();
 
+        }).error(function (data) {
+            alert('Erro inesperado!');
         });
     }
 
@@ -48,9 +50,10 @@
     self.Remover = function (produto) {
         GroceryService.Remover(produto.Id).success(function (data) {
             alert("Produto excluído com sucesso!");
-            GetProducts();
-            
-        });
+            GetProducts();            
+        }).error(function (data) {
+            alert('Erro inesperado!');
+        });;
     }
 
     function GetProducts() {

@@ -67,6 +67,7 @@ namespace Grocery.WebApp.Controllers
         [System.Web.Http.HttpPut]
         public IHttpActionResult Put(ProdutoViewModel produtoViewModel)
         {
+
             Produto produtoAtual = this.contexto.ProdutoRepository.Obter(produtoViewModel.Id);
 
             produtoAtual.Nome = produtoViewModel.Nome;
