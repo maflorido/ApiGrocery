@@ -18,5 +18,9 @@
         return $http.get(urlBase + "/" + id);
     };
 
+    GroceryService.Salvar = function (objeto) {
+        return $http.put(urlBase + "/" + objeto);
+    }
+
     return GroceryService;
 }]);

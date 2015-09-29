@@ -19,6 +19,17 @@
         });        
     }
 
+    self.PostEditar = function () {
+        var objeto = {
+            Nome: self.nome,
+            Valor: self.valor
+        };
+
+        GroceryService.Salvar(objeto).success(function (data) {
+            alert('Produto editado.')
+        });
+    }
+
     self.Salvar = function () {
         var objeto = {
             Nome: self.nome,
