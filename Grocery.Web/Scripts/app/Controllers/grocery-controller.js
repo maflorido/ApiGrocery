@@ -2,7 +2,6 @@
     var self = this;
     
     self.Listar = function () {
-        $location.path("/listar");
         GetProducts();        
     }
 
@@ -19,15 +18,17 @@
         });        
     }
 
-    self.PostEditar = function () {
-
+    self.PostEditar = function () {     
         var objeto = {
+            Id: $scope.produto.Id,
             Nome: $scope.produto.Nome,
             Valor: $scope.produto.Valor
         };
 
         GroceryService.Salvar(objeto).success(function (data) {
             alert('Produto editado.')
+            GetProducts();
+
         });
     }
 
@@ -38,7 +39,7 @@
         };
         GroceryService.Novo(objeto).success(function (data) {
             alert("Produto incuído!");
-            $location.path("/");
+            GetProducts();
         }).error(function (data) {
             $scope.error = "Erro ao inserir!" + data;
         });
@@ -47,12 +48,15 @@
     self.Remover = function (produto) {
         GroceryService.Remover(produto.Id).success(function (data) {
             alert("Produto excluído com sucesso!");
+            GetProducts();
+            
         });
     }
 
     function GetProducts() {
         GroceryService.GetProducts().success(function (pl) {
             $scope.produtos = pl
+            $location.path("/listar");
         },
         function (errorPl) {
             $scope.error = errorPl;

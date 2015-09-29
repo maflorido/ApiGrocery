@@ -20,7 +20,6 @@ namespace Grocery.WebApp.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        [System.Web.Mvc.Route("/listar")]
         public IList<ProdutoViewModel> GetAll()
         {
             var produtos = contexto.ProdutoRepository.Listar();
