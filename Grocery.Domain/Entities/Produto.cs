@@ -22,8 +22,8 @@ namespace Grocery.Domain.Entities
 
         public long Id { get; private set; }
 
-        public string Nome { get; private set; }
+        public string Nome { get; set; }
 
-        public double Valor { get; private set; }
+        public double Valor { get; set; }
     }
 }

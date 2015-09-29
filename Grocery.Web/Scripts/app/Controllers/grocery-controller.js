@@ -10,6 +10,15 @@
         $location.path(rota);
     }
 
+    self.Editar = function (id) {
+
+        GroceryService.Editar(id).success(function (data) {
+            $scope.produto = data;
+
+            $location.path("/editar");
+        });        
+    }
+
     self.Salvar = function () {
         var objeto = {
             Nome: self.nome,

@@ -14,5 +14,9 @@
         return $http.delete(urlBase + "/" + id);
     };
 
+    GroceryService.Editar = function (id) {
+        return $http.get(urlBase + "/" + id);
+    };
+
     return GroceryService;
 }]);

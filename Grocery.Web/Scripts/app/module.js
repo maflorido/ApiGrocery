@@ -17,6 +17,13 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
                             controller: 'groceryController'
                         });
 
+    $routeProvider.when('/editar',
+                        {
+                            templateUrl: '/paginas/Editar.html',
+                            controller: 'groceryController'
+                        });
+
+
     $locationProvider.html5Mode({
         enbled: true,
         requireBase: false
