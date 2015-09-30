@@ -1,5 +1,4 @@
 ﻿using Grocery.Data;
-using Grocery.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +11,7 @@ namespace Grocery.Repository
     public class GenericRepository<T> : IGenericRepository<T>
         where T : class
     {
-        private GroceryContext dbContext;
+        protected GroceryContext dbContext;
 
         public GenericRepository(GroceryContext context)
         {
@@ -45,17 +44,7 @@ namespace Grocery.Repository
         public IList<T> Listar()
         {
             return this.dbContext.Set<T>().ToListAsync().Result;
-        }
-
-        public IList<T> Listar(string orderBy, bool reverse)
-        {
-            var propredade = typeof(Produto).GetProperty(orderBy);
-
-            if (reverse)
-                return this.dbContext.Set<T>().ToListAsync().Result.OrderByDescending(x => propredade.GetValue(x)).ToList();
-            else
-                return this.dbContext.Set<T>().ToListAsync().Result.OrderBy(x => propredade.GetValue(x)).ToList(); 
-        }
+        }        
 
         public T Obter(long id)
         {

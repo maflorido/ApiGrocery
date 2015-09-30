@@ -1,4 +1,5 @@
 ﻿using Grocery.Domain.Entities;
+using Grocery.Domain.Repository;
 using Grocery.Repository;
 using System;
 
@@ -8,14 +9,14 @@ namespace Grocery.Data
     public class UnitOfWork:IDisposable
     {
         private GroceryContext context = new GroceryContext();
-        private GenericRepository<Produto> produtoRepository;
+        private IProdutoRepository produtoRepository;
 
-        public IGenericRepository<Produto> ProdutoRepository
+        public IProdutoRepository ProdutoRepository
         {
             get
             {
                 if (this.produtoRepository == null)
-                    this.produtoRepository = new GenericRepository<Produto>(context);
+                    this.produtoRepository = new ProdutoRepository(context);
 
                 return this.produtoRepository;
             }
