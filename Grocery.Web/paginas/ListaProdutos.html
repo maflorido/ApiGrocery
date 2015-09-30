@@ -1,11 +1,13 @@
-﻿ <table class="table">
+﻿ <table class="table table-striped table-bordered table-hover table-condensed">
     <tr>
-        <th>Id</th>
-        <th>Name</th>
+        <th>
+            Nome
+            <i ng-class="{'glyphicon glyphicon-chevron-up':sortKeyOrder.order=='ASC' && sortKeyOrder.key=='nome'}"></i>
+            <i ng-class="{'glyphicon glyphicon-chevron-down':sortKeyOrder.order=='DESC' && sortKeyOrder.key=='nome'}"></i>
+        </th>
         <th colspan="2">Valor</th>
     </tr>
     <tr ng-repeat="prod in produtos">
-        <td>{{prod.Id}}</td>
         <td>{{prod.Nome}}</td>
         <td>{{prod.Valor}}</td>
         <td>
