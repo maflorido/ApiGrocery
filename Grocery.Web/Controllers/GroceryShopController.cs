@@ -1,12 +1,10 @@
 ﻿using Grocery.Data;
 using Grocery.Domain.Entities;
 using Grocery.WebApp.Models;
-using System;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace Grocery.WebApp.Controllers
 {
@@ -20,9 +18,15 @@ namespace Grocery.WebApp.Controllers
         }
 
         [System.Web.Http.HttpGet]
-        public IList<ProdutoViewModel> GetAll()
+        public IList<ProdutoViewModel> GetAll(string SortBy, bool Reverse)
         {
             var produtos = contexto.ProdutoRepository.Listar();
+            var propredade = typeof(Produto).GetProperty(SortBy);
+
+            if (Reverse)
+                produtos = produtos.OrderByDescending(x => propredade.GetValue(x)).ToList();
+            else
+                produtos = produtos.OrderBy(x => propredade.GetValue(x)).ToList();
 
             return ProdutoViewModel.ListarProdutosViewModel(produtos);
         }

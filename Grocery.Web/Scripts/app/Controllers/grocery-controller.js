@@ -1,4 +1,10 @@
 ﻿app.controller("groceryController", function ($scope, GroceryService, $location) {
+
+    $scope.configuracoesPagina = {
+        SortBy: 'Nome',
+        Reverse: false
+    };
+
     var self = this;
     
     self.Listar = function () {
@@ -56,8 +62,22 @@
         });;
     }
 
+    self.Ordenar = function (coluna) {
+        console.log(coluna);
+        console.log($scope.configuracoesPagina.sortBy);
+
+        if (coluna == $scope.configuracoesPagina.SortBy) {
+            $scope.configuracoesPagina.Reverse = !$scope.configuracoesPagina.Reverse;
+        } else {
+            $scope.configuracoesPagina.SortBy = coluna;
+            $scope.configuracoesPagina.Reverse = false;
+        }
+
+        GetProducts();
+    }
+
     function GetProducts() {
-        GroceryService.GetProducts().success(function (pl) {
+        GroceryService.GetProducts($scope.configuracoesPagina).success(function (pl) {
             $scope.produtos = pl
             $location.path("/listar");
         },

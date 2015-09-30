@@ -2,8 +2,8 @@
     var urlBase = '/api/GroceryShop';
     var GroceryService = {};
 
-    GroceryService.GetProducts = function () {
-        return $http.get(urlBase);
+    GroceryService.GetProducts = function (configuracoesPagina) {
+        return $http.get(urlBase + "/", { params: configuracoesPagina });
     };
 
     GroceryService.Novo = function (objeto) {
