@@ -20,14 +20,8 @@ namespace Grocery.WebApp.Controllers
         [System.Web.Http.HttpGet]
         public IList<ProdutoViewModel> GetAll(string SortBy, bool Reverse)
         {
-            var produtos = contexto.ProdutoRepository.Listar();
-            var propredade = typeof(Produto).GetProperty(SortBy);
-
-            if (Reverse)
-                produtos = produtos.OrderByDescending(x => propredade.GetValue(x)).ToList();
-            else
-                produtos = produtos.OrderBy(x => propredade.GetValue(x)).ToList();
-
+            var produtos = contexto.ProdutoRepository.Listar(SortBy, Reverse);
+            
             return ProdutoViewModel.ListarProdutosViewModel(produtos);
         }
 

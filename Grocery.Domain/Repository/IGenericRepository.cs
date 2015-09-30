@@ -9,6 +9,8 @@ namespace Grocery.Repository
     {
         IList<T> Listar();
 
+        IList<T> Listar(string orderBy, bool reverse);
+
         T Obter(long id);
 
         List<T> Filtrar(Expression<Func<T, bool>> filtro);
