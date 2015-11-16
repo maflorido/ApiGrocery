@@ -10,23 +10,6 @@ namespace Grocery.Data
         protected override void Seed(GroceryContext context)
         {
             context.Set<Produto>().AddRange(this.Produtos);
-            context.Set<Pedido>().Add(new Pedido()
-            {
-                CEP = "1",
-                CPF = "1",
-                Endereco = "end",
-                DataPedido = DateTime.Now,
-                ItensPedido = new List<ItensPedido>()
-                {
-                    new ItensPedido()
-                    {
-                        Produto=this.Produtos[0],
-                        Quantidade=5
-                    }
-                }
-            });
-
-
             base.Seed(context);
         }
 
