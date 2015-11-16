@@ -1,9 +1,5 @@
 ﻿var app = angular.module("groceryApp", ["ngRoute"]);
 
-app.factory("ShareData", function () {
-    value: 0
-});
-
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/listar',
                         {
@@ -21,6 +17,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
                         {
                             templateUrl: '/paginas/Editar.html',
                             controller: 'groceryController'
+                        });
+
+    $routeProvider.when('/pedido/novo',
+                        {
+                            templateUrl: '/paginas/pedido/novo.html',
+                            controller: 'pedidoController'
                         });
 
 

@@ -163,6 +163,7 @@
     <Content Include="paginas\Cadastro.html" />
     <Content Include="paginas\Editar.html" />
     <Content Include="paginas\ListaProdutos.html" />
+    <Content Include="paginas\pedido\novo.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -189,6 +190,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\Controllers\grocery-controller.js" />
+    <Content Include="Scripts\app\Controllers\grocery-pedido-controller.js" />
     <Content Include="Scripts\app\module.js" />
     <Content Include="Scripts\app\Services\grocery-service.js" />
     <Content Include="Scripts\bootstrap.js" />

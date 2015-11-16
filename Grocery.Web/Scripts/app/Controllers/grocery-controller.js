@@ -63,9 +63,6 @@
     }
 
     self.Ordenar = function (coluna) {
-        console.log(coluna);
-        console.log($scope.configuracoesPagina.sortBy);
-
         if (coluna == $scope.configuracoesPagina.SortBy) {
             $scope.configuracoesPagina.Reverse = !$scope.configuracoesPagina.Reverse;
         } else {

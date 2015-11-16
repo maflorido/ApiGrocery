@@ -42,7 +42,8 @@ namespace Grocery.WebApp
                 "~/Scripts/angular-route.js",
                 "~/Scripts/app/module.js",
                 "~/Scripts/app/Services/grocery-service.js",
-                "~/Scripts/app/Controllers/grocery-controller.js"));
+                "~/Scripts/app/Controllers/grocery-controller.js",
+                "~/Scripts/app/Controllers/grocery-pedido-controller.js"));
         }
     }
 }

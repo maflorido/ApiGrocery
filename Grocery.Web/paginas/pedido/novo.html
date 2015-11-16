@@ -1,0 +1,21 @@
+﻿<form name="novoPedido" class="form-horizontal">
+    <div class="form-group">
+        <label for="cname" class="col-sm-2 control-label">Nomeasasasassassas:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Nome do produto" ng-model="ctrl.nome" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="cname" class="col-sm-2 control-label">Valor:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" placeholder="Valor do produto" ng-model="ctrl.valor" required />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <input type="submit" value="Salvar" data-ng-click="ctrl.Salvar()" data-ng-disabled="!addProduct.$valid" class="btn btn-primary" />
+            <input type="button" value="Cancelar" data-ng-click="ctrl.Listar()" class="btn btn-primary" />
+        </div>
+    </div>
+    <br />
+</form>
