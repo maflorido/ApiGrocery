@@ -8,6 +8,8 @@ namespace Grocery.Domain.Entities
 {
     public class ItensPedido
     {
+        public Pedido Pedido { get; set; }
+
         public Produto Produto { get; set; }
 
         public long Quantidade { get; set; }

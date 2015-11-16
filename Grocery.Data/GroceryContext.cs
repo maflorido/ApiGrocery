@@ -17,6 +17,9 @@ namespace Grocery.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Produto>().ToTable("Produto");
+            modelBuilder.Entity<Pedido>().ToTable("Pedido");
+            modelBuilder.Entity<ItensPedido>().ToTable("ItemPedido");
+
             base.OnModelCreating(modelBuilder);
         }        
 
