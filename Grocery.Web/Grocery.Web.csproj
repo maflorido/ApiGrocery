@@ -196,6 +196,7 @@
     <Content Include="Scripts\app\Controllers\grocery-controller.js" />
     <Content Include="Scripts\app\Controllers\grocery-pedido-controller.js" />
     <Content Include="Scripts\app\module.js" />
+    <Content Include="Scripts\app\Services\grocery-pedido-service.js" />
     <Content Include="Scripts\app\Services\grocery-service.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
