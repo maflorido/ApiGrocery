@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grocery.Domain.Entities
 {
@@ -12,7 +9,7 @@ namespace Grocery.Domain.Entities
         {
             this.ItensPedido = new List<ItensPedido>();
         }
-
+        
         public long Id { get; private set; }
 
         public DateTime DataPedido { get; set; }

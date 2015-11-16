@@ -1,5 +1,4 @@
 ﻿using Grocery.Domain.Entities;
-using System.Collections.Generic;
 using System.Data.Entity;
 
 namespace Grocery.Data
@@ -9,9 +8,10 @@ namespace Grocery.Data
         public GroceryContext()
             : base("Contexto")
         {
-            Database.SetInitializer<GroceryContext>(new GroceryDBInitializer());
+            Database.SetInitializer<GroceryContext>(new GroceryDBInitializer());            
             this.Configuration.LazyLoadingEnabled = false;
             this.Configuration.ProxyCreationEnabled = true;
+            
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -19,6 +19,7 @@ namespace Grocery.Data
             modelBuilder.Entity<Produto>().ToTable("Produto");
             modelBuilder.Entity<Pedido>().ToTable("Pedido");
             modelBuilder.Entity<ItensPedido>().ToTable("ItemPedido");
+            
 
             base.OnModelCreating(modelBuilder);
         }        

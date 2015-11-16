@@ -10,7 +10,7 @@ namespace Grocery.Domain.Entities
     {
         protected Produto()
         {
-
+            
         }
 
         public Produto(long id, string nome, double valor)
@@ -25,5 +25,7 @@ namespace Grocery.Domain.Entities
         public string Nome { get; set; }
 
         public double Valor { get; set; }
+
+        public virtual IList<ItensPedido> ItensPedido { get; set; }
     }
 }

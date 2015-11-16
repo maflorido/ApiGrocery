@@ -26,7 +26,7 @@ namespace Grocery.Repository
             else if (orderBy == "Valor" && reverse)
                 query = query.OrderByDescending(x => x.Valor);
             else
-                query = query.OrderBy(x => x.Valor);
+                query = query.OrderBy(x => x.Valor);           
 
             return query.ToListAsync().Result;
         }

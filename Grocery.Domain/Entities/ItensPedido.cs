@@ -1,29 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Grocery.Domain.Entities
 {
     public class ItensPedido
     {
+        [Key]
+        [Column(Order = 1)]
+        public long PedidoId { get; set; }
+
+        [ForeignKey("PedidoId")]
         public Pedido Pedido { get; set; }
 
+        [Key]
+        [Column(Order = 2)]
+        public long ProdutoId { get; set; }
+
+        [ForeignKey("ProdutoId")]
         public Produto Produto { get; set; }
 
         public long Quantidade { get; set; }
 
         public double ValorItem
         {
-            get { return ValorItem; }
-            set { value = this.Produto.Valor; }
+            get { return this.Produto.Valor; }            
         }
 
         public double Total
         {
-            get{ return Total; }
-            set { value = this.ValorItem * this.Quantidade; }
+            get { return this.ValorItem * this.Quantidade; }
         }
     }
 }

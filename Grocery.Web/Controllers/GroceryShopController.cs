@@ -4,7 +4,6 @@ using Grocery.WebApp.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Mvc;
-using System.Linq;
 
 namespace Grocery.WebApp.Controllers
 {
