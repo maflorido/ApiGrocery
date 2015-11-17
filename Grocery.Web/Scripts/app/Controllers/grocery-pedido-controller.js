@@ -19,8 +19,6 @@
 
 
     self.RemoverProdutoPedido = function (produto) {
-        console.log(produto);
-
         this.produtosIncluidos = $.grep(this.produtosIncluidos, function (e) {
             return e.Id != produto.Id;
         });
@@ -31,7 +29,7 @@
         var url = urlServicoCep.replace("valorcep", this.cep);
 
         PedidoService.ConsultarCep(url).success(function (data) {
-            console.log(data);
+            
         });
         
    }    
