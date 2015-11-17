@@ -4,9 +4,14 @@
 
     self.Novo = function () {
         PedidoService.ListarProdutos($scope.configuracoesPagina).success(function (data) {
-            console.log(data);
+            $scope.produtosCombo = data;            
         });
 
         $location.path('/pedido/novo');
     }
+
+    self.IncluirPedido = function () {
+        
+    }
+
 });
