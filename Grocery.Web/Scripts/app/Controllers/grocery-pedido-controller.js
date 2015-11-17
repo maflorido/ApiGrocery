@@ -12,6 +12,18 @@
 
     self.IncluirPedido = function () {
         
+        var produto = JSON.parse(self.produto);
+
+        var produtoPedido = {
+            Id: produto.Id,
+            Nome: produto.Nome,
+            Valor: produto.Valor,
+            Quantidade: self.quantidade
+        };
+
+        $scope.produtosIncluidos = new Array();
+        $scope.produtosIncluidos.push(produtoPedido);
+
     }
 
 });
