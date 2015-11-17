@@ -19,5 +19,9 @@
         return produtoPedido;
     }
 
+    PedidoService.ConsultarCep = function (url) {
+        return $http.get(url);
+    }
+
     return PedidoService;
 }]);
