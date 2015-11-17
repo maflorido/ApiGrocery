@@ -6,5 +6,18 @@
         return produtos;
     }
 
+    PedidoService.CriarProdutoPedido = function (produto, quantidade) {
+        var produto = JSON.parse(produto);
+
+        var produtoPedido = {
+            Id: produto.Id,
+            Nome: produto.Nome,
+            Valor: produto.Valor,
+            Quantidade: quantidade
+        };
+
+        return produtoPedido;
+    }
+
     return PedidoService;
 }]);
