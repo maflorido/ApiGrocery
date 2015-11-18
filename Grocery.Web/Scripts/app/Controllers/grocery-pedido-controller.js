@@ -14,7 +14,7 @@
     }
 
     self.IncluirPedido = function () {        
-        var produtoPedido = PedidoService.CriarProdutoPedido(self.produto, self.quantidade);
+        var produtoPedido = PedidoService.CriarProdutoPedido(self.produto, self.quantidade, self.cpf, self.cep, $scope.endereco);
         this.produtosIncluidos.push(produtoPedido);
     }
 
@@ -26,7 +26,7 @@
                 
     }
 
-    self.BuscarCep = function () {        
+    self.BuscarCep = function () {
         var url = urlServicoCep.replace("valorcep", this.cep);
 
         PedidoService.ConsultarCep(url).success(function (data) {
@@ -35,6 +35,13 @@
         .error(function () {
             alert("Ocorreu um erro ao utilizar o serviço de busca de CEP.");
         });
-        
-   }    
+    }
+
+    self.Salvar = function () {
+        PedidoService.SalvarPedido(this.produtosIncluidos).success(function () {
+            alert('Pedido incluído!');
+        }).error(function () {
+            alert('Erro inesperado.');
+        });
+    }
 });
