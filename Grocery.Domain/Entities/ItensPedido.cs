@@ -21,12 +21,9 @@ namespace Grocery.Domain.Entities
 
         public long Quantidade { get; set; }
 
-        public double ValorItem
-        {
-            get { return this.Produto.Valor; }            
-        }
+        public decimal ValorItem { get; set; }
 
-        public double Total
+        public decimal Total
         {
             get { return this.ValorItem * this.Quantidade; }
         }

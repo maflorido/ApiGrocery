@@ -10,6 +10,7 @@ namespace Grocery.Data
     {
         private GroceryContext context = new GroceryContext();
         private IProdutoRepository produtoRepository;
+        private IGenericRepository<Pedido> pedidoRepository;
 
         public IProdutoRepository ProdutoRepository
         {
@@ -21,11 +22,22 @@ namespace Grocery.Data
                 return this.produtoRepository;
             }
         }
+
+        public IGenericRepository<Pedido> PedidoRepository
+        {
+            get
+            {
+                if (this.pedidoRepository == null)
+                    this.pedidoRepository = new GenericRepository<Pedido>(context);
+
+                return this.pedidoRepository;
+            }
+        }
+
         public void Save()
         {
             this.context.SaveChanges();
         }
-
 
         private bool disposed = false;
 

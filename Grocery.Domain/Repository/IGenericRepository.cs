@@ -15,6 +15,8 @@ namespace Grocery.Repository
 
         void Incluir(T objeto);
 
+        void IncluirItens(List<T> objetos);
+
         void Editar(T objeto);
 
         void Excluir(T objeto);

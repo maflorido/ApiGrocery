@@ -41,6 +41,11 @@ namespace Grocery.Repository
             this.dbContext.Set<T>().Add(objeto);
         }
 
+        public void IncluirItens(List<T> objetos)
+        {
+            this.dbContext.Set<T>().AddRange(objetos);
+        }
+
         public IList<T> Listar()
         {
             return this.dbContext.Set<T>().ToListAsync().Result;

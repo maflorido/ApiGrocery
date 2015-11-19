@@ -7,17 +7,14 @@
         return produtos;
     }
 
-    PedidoService.CriarProdutoPedido = function (produto, quantidade, cpf, cep, endereco) {
+    PedidoService.CriarProdutoPedido = function (produto, quantidade) {
         var produto = JSON.parse(produto);
 
         var produtoPedido = {
             Id: produto.Id,
             Nome: produto.Nome,
             Valor: produto.Valor,
-            Quantidade: quantidade,
-            CPF: cpf,
-            CEP: cep,
-            Endereco: endereco
+            Quantidade: quantidade            
         };
 
         return produtoPedido;
@@ -27,10 +24,17 @@
         return $http.get(url);
     }
 
-    PedidoService.SalvarPedido = function (pedidos) {
+    PedidoService.SalvarPedido = function (pedidos, cpf, cep, endereco, dataPedido) {        
 
-        console.log(pedidos);
-        return $http.post(urlBase + "/", pedidos);
+        var objetoInserir = {
+            CPF: cpf,
+            CEP: cep,
+            Endereco: endereco,
+            DataPedido: dataPedido,
+            ItensPedido: pedidos
+        };
+
+        return $http.post(urlBase + "/", objetoInserir);
     }
 
     return PedidoService;

@@ -7,20 +7,20 @@
 
     self.Novo = function () {
         PedidoService.ListarProdutos($scope.configuracoesPagina).success(function (data) {
-            $scope.produtosCombo = data;            
+            self.produtosCombo = data;            
         });
 
         $location.path('/pedido/novo');
     }
 
     self.IncluirPedido = function () {        
-        var produtoPedido = PedidoService.CriarProdutoPedido(self.produto, self.quantidade, self.cpf, self.cep, $scope.endereco);
-        this.produtosIncluidos.push(produtoPedido);
+        var produtoPedido = PedidoService.CriarProdutoPedido(self.produto, self.quantidade);
+        self.produtosIncluidos.push(produtoPedido);
     }
 
 
     self.RemoverProdutoPedido = function (produto) {
-        this.produtosIncluidos = $.grep(this.produtosIncluidos, function (e) {
+        self.produtosIncluidos = $.grep(self.produtosIncluidos, function (e) {
             return e.Id != produto.Id;
         });
                 
@@ -30,7 +30,7 @@
         var url = urlServicoCep.replace("valorcep", this.cep);
 
         PedidoService.ConsultarCep(url).success(function (data) {
-            $scope.endereco = data.tipo_logradouro + " " + data.logradouro.split("-")[0].trim() + ", " + data.bairro + ", " + data.cidade + ", " + data.uf;
+            self.endereco = data.tipo_logradouro + " " + data.logradouro.split("-")[0].trim() + ", " + data.bairro + ", " + data.cidade + ", " + data.uf;
         })
         .error(function () {
             alert("Ocorreu um erro ao utilizar o serviço de busca de CEP.");
@@ -38,7 +38,8 @@
     }
 
     self.Salvar = function () {
-        PedidoService.SalvarPedido(this.produtosIncluidos).success(function () {
+        
+        PedidoService.SalvarPedido(this.produtosIncluidos, self.cpf, self.cep, $scope.endereco, self.dataPedido).success(function () {
             alert('Pedido incluído!');
         }).error(function () {
             alert('Erro inesperado.');

@@ -20,7 +20,7 @@ namespace Grocery.Domain.Entities
 
         public string Endereco { get; set; }
 
-        public double Total { get; set; }
+        public decimal Total { get; set; }
 
         public virtual IList<ItensPedido> ItensPedido { get; set; }
     }

@@ -2,7 +2,7 @@
     <div class="col-sm-push-5">
         <label for="produto" class="col-sm-2 control-label">Produto:</label>
         <select id="combo-produto" class="form-control" ng-model="ctrlPedido.produto" required>
-            <option ng-repeat="option in produtosCombo" value="{{option}}">
+            <option ng-repeat="option in ctrlPedido.produtosCombo" value="{{option}}">
                 {{option.Nome}}
             </option>
         </select>
@@ -24,7 +24,12 @@
 
     <div class="col-sm-push-5">
         <label for="endereco" class="col-sm-2 control-label">Endereço:</label>
-        <input type="text" class="form-control" placeholder="Endreço" ng-model="endereco" required />
+        <input type="text" class="form-control" placeholder="Endreço" ng-model="ctrlPedido.endereco" required />
+    </div>
+
+    <div class="col-sm-push-4">
+        <label for="DataPedido" class="col-sm-2 control-label">Data do pedido:</label>
+        <input type="text" class="form-control" placeholder="Data do pedido" ng-model="ctrlPedido.dataPedido" required />
     </div>
 
     <div class="col-sm-push-2">

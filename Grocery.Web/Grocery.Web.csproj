@@ -987,6 +987,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfiguracoesPaginaViewModel.cs" />
+    <Compile Include="Models\ItemPedidoViewModel.cs" />
     <Compile Include="Models\PedidoViewModel.cs" />
     <Compile Include="Models\ProdutoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
