@@ -34,6 +34,8 @@
             ItensPedido: pedidos
         };
 
+        console.log(objetoInserir);
+
         return $http.post(urlBase + "/", objetoInserir);
     }
 

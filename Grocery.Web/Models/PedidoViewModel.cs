@@ -22,6 +22,6 @@ namespace Grocery.Web.Models
 
         public string Endereco { get; set; }   
         
-        public DateTime DataPedido { get; set; }
+        public string DataPedido { get; set; }
     }
 }

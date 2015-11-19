@@ -1,6 +1,8 @@
 ﻿using Grocery.Data;
 using Grocery.Domain.Entities;
 using Grocery.Web.Models;
+using System;
+using System.Globalization;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -23,7 +25,7 @@ namespace Grocery.Web.Controllers
             {
                 CEP = pedidosViewModel.CEP,
                 CPF = pedidosViewModel.CPF,
-                DataPedido = pedidosViewModel.DataPedido,
+                DataPedido = DateTime.ParseExact(pedidosViewModel.DataPedido, "dd/MM/yyyy", CultureInfo.InvariantCulture),
                 Endereco = pedidosViewModel.Endereco,
                 ItensPedido = pedidosViewModel.ItensPedido.Select(x => new ItensPedido()
                 {

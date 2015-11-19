@@ -27,7 +27,7 @@
     }
 
     self.BuscarCep = function () {
-        var url = urlServicoCep.replace("valorcep", this.cep);
+        var url = urlServicoCep.replace("valorcep", self.cep);
 
         PedidoService.ConsultarCep(url).success(function (data) {
             self.endereco = data.tipo_logradouro + " " + data.logradouro.split("-")[0].trim() + ", " + data.bairro + ", " + data.cidade + ", " + data.uf;
@@ -37,9 +37,9 @@
         });
     }
 
-    self.Salvar = function () {
-        
-        PedidoService.SalvarPedido(this.produtosIncluidos, self.cpf, self.cep, $scope.endereco, self.dataPedido).success(function () {
+    self.Salvar = function () {        
+
+        PedidoService.SalvarPedido(self.produtosIncluidos, self.cpf, self.cep, self.endereco, self.dataPedido).success(function () {
             alert('Pedido incluído!');
         }).error(function () {
             alert('Erro inesperado.');
