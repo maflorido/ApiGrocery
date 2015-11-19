@@ -4,11 +4,13 @@
         <th>CEP</th>
         <th>Endereço</th>
         <th>Data</th>
+        <td>Itens pedido</td>
     </tr>
     <tr ng-repeat="ped in pedidosCadastrados">
         <td>{{ped.CPF}}</td>
         <td>{{ped.CEP}}</td>
         <td>{{ped.Endereco}}</td>
-        <td>{{ped.DataPedido}}</td>        
+        <td>{{ped.DataPedido}}</td>
+        <td><a href="" ng-click="ctrlPedido.ListarItens(ped.ItensPedido)">detalhes</a></td>
     </tr>
 </table>

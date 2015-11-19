@@ -46,12 +46,19 @@ namespace Grocery.Repository
             this.dbContext.Set<T>().AddRange(objetos);
         }
 
-        public IList<T> Listar(Expression<Func<T, object>> includes = null)
+        public IList<T> Listar(params Expression<Func<T, object>>[] includes)
         {
-            if (includes != null)
-                return this.dbContext.Set<T>().Include(includes).ToListAsync().Result;
+            var query = this.dbContext.Set<T>().AsQueryable();
 
-            return this.dbContext.Set<T>().ToListAsync().Result;
+            if (includes.Length > 0)
+            {
+                foreach (var item in includes)
+                {
+                    query = query.Include(item);
+                }
+            }
+
+            return query.ToListAsync().Result;
         }        
 
         public T Obter(long id)

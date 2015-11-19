@@ -6,11 +6,11 @@ using System;
 namespace Grocery.Data
 {
 
-    public class UnitOfWork:IDisposable
+    public class UnitOfWork : IDisposable
     {
         private GroceryContext context = new GroceryContext();
         private IProdutoRepository produtoRepository;
-        private IGenericRepository<Pedido> pedidoRepository;
+        private IPedidoRepository pedidoRepository;
 
         public IProdutoRepository ProdutoRepository
         {
@@ -23,12 +23,12 @@ namespace Grocery.Data
             }
         }
 
-        public IGenericRepository<Pedido> PedidoRepository
+        public IPedidoRepository PedidoRepository
         {
             get
             {
                 if (this.pedidoRepository == null)
-                    this.pedidoRepository = new GenericRepository<Pedido>(context);
+                    this.pedidoRepository = new PedidoRepository(context);
 
                 return this.pedidoRepository;
             }

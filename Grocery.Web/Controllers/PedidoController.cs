@@ -22,7 +22,7 @@ namespace Grocery.Web.Controllers
         [System.Web.Http.HttpGet]
         public IList<PedidoViewModel> GetAll()
         {
-            var pedidos = contexto.PedidoRepository.Listar(x => x.ItensPedido);
+            var pedidos = contexto.PedidoRepository.Listar();            
 
             return PedidoViewModel.ListarPedidosViewModel(pedidos);
         }

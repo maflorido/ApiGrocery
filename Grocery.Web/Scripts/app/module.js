@@ -31,6 +31,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
                             controller: 'pedidoController'
                         });
 
+    $routeProvider.when('/pedido/listarItens',
+                        {
+                            templateUrl: '/paginas/pedido/listarItens.html'
+                        });
+
 
     $locationProvider.html5Mode({
         enbled: true,

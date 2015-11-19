@@ -168,6 +168,7 @@
     <Content Include="paginas\Editar.html" />
     <Content Include="paginas\ListaProdutos.html" />
     <Content Include="paginas\pedido\listar.html" />
+    <Content Include="paginas\pedido\listarItens.html" />
     <Content Include="paginas\pedido\novo.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />

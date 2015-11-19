@@ -1,0 +1,15 @@
+﻿<table class="table table-striped table-bordered table-hover table-condensed">
+    <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Valor Produto</th>
+        <th>Total</th>
+    </tr>
+    <tr ng-repeat="item in ctrlPedido.pedidos">
+        <td>{{item.NomeProduto}}</td>
+        <td>{{item.Quantidade}}</td>
+        <td>{{item.Valor}}</td>
+        <td>{{item.Total}}</td>
+        
+    </tr>
+</table>

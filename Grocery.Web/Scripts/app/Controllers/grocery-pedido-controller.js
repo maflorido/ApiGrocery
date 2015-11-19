@@ -51,4 +51,9 @@
             alert('Erro inesperado.');
         });
     }
+
+    self.ListarItens = function (pedidos) {
+        this.pedidos = pedidos;
+        $location.path("/pedido/listarItens");
+    }
 });
