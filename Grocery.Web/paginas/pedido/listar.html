@@ -1,0 +1,14 @@
+﻿<table class="table table-striped table-bordered table-hover table-condensed">
+    <tr>
+        <th>CPF</th>
+        <th>CEP</th>
+        <th>Endereço</th>
+        <th>Data</th>
+    </tr>
+    <tr ng-repeat="ped in pedidosCadastrados">
+        <td>{{ped.CPF}}</td>
+        <td>{{ped.CEP}}</td>
+        <td>{{ped.Endereco}}</td>
+        <td>{{ped.DataPedido}}</td>        
+    </tr>
+</table>

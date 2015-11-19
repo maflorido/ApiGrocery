@@ -39,5 +39,9 @@
         return $http.post(urlBase + "/", objetoInserir);
     }
 
+    PedidoService.Listar = function () {
+        return $http.get(urlBase);
+    }
+
     return PedidoService;
 }]);

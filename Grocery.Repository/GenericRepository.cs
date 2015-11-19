@@ -46,8 +46,11 @@ namespace Grocery.Repository
             this.dbContext.Set<T>().AddRange(objetos);
         }
 
-        public IList<T> Listar()
+        public IList<T> Listar(Expression<Func<T, object>> includes = null)
         {
+            if (includes != null)
+                return this.dbContext.Set<T>().Include(includes).ToListAsync().Result;
+
             return this.dbContext.Set<T>().ToListAsync().Result;
         }        
 

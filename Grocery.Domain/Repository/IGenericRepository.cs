@@ -7,7 +7,7 @@ namespace Grocery.Repository
 {
     public interface IGenericRepository<T> where T : class
     {
-        IList<T> Listar();
+        IList<T> Listar(Expression<Func<T, object>> includes = null);
 
         T Obter(long id);
 

@@ -2,6 +2,7 @@
 using Grocery.Domain.Entities;
 using Grocery.Web.Models;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Web.Http;
@@ -16,6 +17,14 @@ namespace Grocery.Web.Controllers
         public PedidoController()
         {
             this.contexto = DependencyResolver.Current.GetService<UnitOfWork>();
+        }
+
+        [System.Web.Http.HttpGet]
+        public IList<PedidoViewModel> GetAll()
+        {
+            var pedidos = contexto.PedidoRepository.Listar(x => x.ItensPedido);
+
+            return PedidoViewModel.ListarPedidosViewModel(pedidos);
         }
 
         [System.Web.Http.HttpPost]

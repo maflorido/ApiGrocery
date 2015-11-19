@@ -4,6 +4,12 @@
     this.produtosIncluidos = new Array();
     var urlServicoCep = "http://cep.republicavirtual.com.br/web_cep.php?cep=valorcep&formato=jsonp";
 
+    self.ListarPedido = function () {
+        PedidoService.Listar().success(function (data) {
+            $scope.pedidosCadastrados = data;
+        });
+        $location.path('/pedido/listar');
+    }
 
     self.Novo = function () {
         PedidoService.ListarProdutos($scope.configuracoesPagina).success(function (data) {
