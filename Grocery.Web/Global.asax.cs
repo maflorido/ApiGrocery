@@ -9,6 +9,7 @@ using System.Web.SessionState;
 using System.Web.Http;
 using Grocery.WebApp;
 using System.Web.Optimization;
+using Grocery.Web;
 
 namespace Grocery.Web
 {
@@ -21,6 +22,7 @@ namespace Grocery.Web
             GlobalConfiguration.Configure(WebApiConfig.Register);            
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            DependencyResolverConfig.Config();
         }
     }
 }

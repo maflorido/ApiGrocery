@@ -11,9 +11,9 @@ namespace Grocery.WebApp.Controllers
     {
         private UnitOfWork contexto;
 
-        public GroceryShopController()
+        public GroceryShopController(UnitOfWork contexto)
         {
-            this.contexto = DependencyResolver.Current.GetService<UnitOfWork>();
+            this.contexto = contexto;
         }
 
         [System.Web.Http.HttpGet]

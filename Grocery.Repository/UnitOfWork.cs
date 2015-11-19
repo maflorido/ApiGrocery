@@ -8,17 +8,21 @@ namespace Grocery.Data
 
     public class UnitOfWork : IDisposable
     {
-        private GroceryContext context = new GroceryContext();
+        private GroceryContext context;
         private IProdutoRepository produtoRepository;
         private IPedidoRepository pedidoRepository;
+
+        public UnitOfWork(GroceryContext context, IProdutoRepository produtoRepository, IPedidoRepository pedidoRepository)
+        {
+            this.context = context;
+            this.produtoRepository = produtoRepository;
+            this.pedidoRepository = pedidoRepository;
+        }
 
         public IProdutoRepository ProdutoRepository
         {
             get
             {
-                if (this.produtoRepository == null)
-                    this.produtoRepository = new ProdutoRepository(context);
-
                 return this.produtoRepository;
             }
         }
@@ -27,9 +31,6 @@ namespace Grocery.Data
         {
             get
             {
-                if (this.pedidoRepository == null)
-                    this.pedidoRepository = new PedidoRepository(context);
-
                 return this.pedidoRepository;
             }
         }
