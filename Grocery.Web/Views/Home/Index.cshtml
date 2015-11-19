@@ -1,8 +1,9 @@
 ﻿<div ng-controller="groceryController as ctrl">
-    <div ng-controller="pedidoController as ctrlPedido">
-        <button id="btnListar" ng-click="ctrl.Listar()">Listar Produtos</button>
-        <button id="btnNovo" ng-click="ctrl.Cadastrar('/cadastro')">Novo Produto</button>
-        <button id="btnNovoPedido" ng-click="ctrlPedido.Novo()">Criar Pedido</button>
+    <div ng-controller="pedidoController as ctrlPedido">        
+        <a href="" ng-click="ctrl.Listar()" >Listar Produtos</a>
+        <a href="" ng-click="ctrl.Cadastrar('/cadastro')">Novo Produto</a>
+        <a href="" ng-click="ctrlPedido.Novo()" >Criar Pedido</a>
+        
         <div data-ng-view></div>
     </div>
     
