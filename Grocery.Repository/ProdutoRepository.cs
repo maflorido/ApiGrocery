@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Grocery.Repository
 {
-    public class ProdutoRepository: GenericRepository<Produto>, IProdutoRepository
+    public sealed class ProdutoRepository: GenericRepository<Produto>, IProdutoRepository
     {
         public ProdutoRepository(GroceryContext context)
             : base(context)
