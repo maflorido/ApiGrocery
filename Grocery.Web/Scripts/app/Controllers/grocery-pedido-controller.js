@@ -36,7 +36,10 @@
         var url = urlServicoCep.replace("valorcep", self.cep);
 
         PedidoService.ConsultarCep(url).success(function (data) {
-            self.endereco = data.tipo_logradouro + " " + data.logradouro.split("-")[0].trim() + ", " + data.bairro + ", " + data.cidade + ", " + data.uf;
+            if (data.resultado != 0)
+                self.endereco = data.tipo_logradouro + " " + data.logradouro.split("-")[0].trim() + ", " + data.bairro + ", " + data.cidade + ", " + data.uf;
+            else
+                alert('CEP não encontrado!');
         })
         .error(function () {
             alert("Ocorreu um erro ao utilizar o serviço de busca de CEP.");
