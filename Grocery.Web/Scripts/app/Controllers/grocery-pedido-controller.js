@@ -59,11 +59,8 @@
         this.pedidos = pedidos;
 
         ngDialog.open({
-            template: '/paginas/pedido/listarItens.html',
-            controller: "pedidoController",
-            controllerAs: "ctrlPedido",
+            template: '/paginas/pedido/listarItens.html',            
             scope: $scope
         });
-        //$location.path("/pedido/listarItens");
     }
 });
