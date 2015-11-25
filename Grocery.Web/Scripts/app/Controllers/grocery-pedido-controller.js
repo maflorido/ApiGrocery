@@ -1,4 +1,4 @@
-﻿app.controller("pedidoController", function ($scope, PedidoService, $location) {
+﻿app.controller("pedidoController", function ($scope, PedidoService, ngDialog, $location) {
 
     var self = this;
     this.produtosIncluidos = new Array();
@@ -57,6 +57,13 @@
 
     self.ListarItens = function (pedidos) {
         this.pedidos = pedidos;
-        $location.path("/pedido/listarItens");
+
+        ngDialog.open({
+            template: '/paginas/pedido/listarItens.html',
+            controller: "pedidoController",
+            controllerAs: "ctrlPedido",
+            scope: $scope
+        });
+        //$location.path("/pedido/listarItens");
     }
 });

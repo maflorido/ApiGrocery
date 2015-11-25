@@ -40,6 +40,7 @@ namespace Grocery.WebApp
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js",
                 "~/Scripts/angular-route.js",
+                "~/Scripts/ngDialog.js",
                 "~/Scripts/app/module.js",
                 "~/Scripts/app/Services/grocery-service.js",
                 "~/Scripts/app/Services/grocery-pedido-service.js",

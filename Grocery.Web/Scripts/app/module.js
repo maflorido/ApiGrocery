@@ -1,4 +1,4 @@
-﻿var app = angular.module("groceryApp", ["ngRoute"]);
+﻿var app = angular.module("groceryApp", ["ngRoute", "ngDialog"]);
 
 app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider.when('/listar',
