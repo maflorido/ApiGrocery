@@ -1,8 +1,13 @@
 ﻿app.controller("pedidoController", function ($scope, PedidoService, ngDialog, $location) {
 
     var self = this;
-    this.produtosIncluidos = new Array();
 
+    self.PedidoController = function () {
+        self.produtosIncluidos = new Array();
+        self.Produto = {};
+
+    }
+    
     self.ListarPedido = function () {
         PedidoService.Listar().success(function (data) {
             $scope.pedidosCadastrados = data;
@@ -13,14 +18,14 @@
     self.Novo = function () {
         PedidoService.ListarProdutos($scope.configuracoesPagina).success(function (data) {
             self.produtosCombo = data;            
-        });        
+        });               
 
-        
+        self.PedidoController();
         $location.path('/pedido/novo');
     }
 
     self.IncluirPedido = function () {        
-        var produtoPedido = PedidoService.CriarProdutoPedido(self.produto, self.quantidade);
+        var produtoPedido = PedidoService.CriarProdutoPedido(self.Produto.NomeProduto, self.Produto.quantidade);
         self.produtosIncluidos.push(produtoPedido);
     }
 
@@ -34,7 +39,7 @@
 
     self.Salvar = function () {        
 
-        PedidoService.SalvarPedido(self.produtosIncluidos, self.cpf, self.cep, self.endereco, self.dataPedido).success(function () {
+        PedidoService.SalvarPedido(self.produtosIncluidos, self.Produto.cpf, self.Produto.cep, self.Produto.endereco, self.Produto.dataPedido).success(function () {
             alert('Pedido incluído!');
         }).error(function () {
             alert('Erro inesperado.');

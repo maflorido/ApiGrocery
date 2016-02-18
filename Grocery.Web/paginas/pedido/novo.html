@@ -1,7 +1,7 @@
 ﻿<form name="novoPedido">
     <div class="col-sm-push-5">
         <label for="produto" class="col-sm-2 control-label">Produto:</label>
-        <select id="combo-produto" class="form-control" ng-model="ctrlPedido.produto" required>
+        <select id="combo-produto" class="form-control" ng-model="ctrlPedido.Produto.NomeProduto" required>
             <option ng-repeat="option in ctrlPedido.produtosCombo" value="{{option}}">
                 {{option.Nome}}
             </option>
@@ -9,27 +9,27 @@
     </div>
     <div class="col-sm-push-7">
         <label for="quantidade" class="col-sm-2 control-label">Quantidade:</label>
-        <input type="text" class="form-control" placeholder="Quantidade" ng-model="ctrlPedido.quantidade" required />
+        <input type="text" class="form-control" placeholder="Quantidade" ng-model="ctrlPedido.Produto.quantidade" required />
     </div>
 
     <div class="col-sm-push-4">
         <label for="cpf" class="col-sm-2 control-label">CPF:</label>
-        <input type="text" class="form-control" placeholder="CPF" ng-model="ctrlPedido.cpf" required />
+        <input type="text" class="form-control" placeholder="CPF" ng-model="ctrlPedido.Produto.cpf" required />
     </div>
 
     <div class="col-sm-push-4">
         <label for="cep" class="col-sm-2 control-label">CEP:</label>
-        <input type="text" class="form-control" placeholder="CEP" ng-model="ctrlPedido.cep" required />
+        <input type="text" class="form-control" placeholder="CEP" ng-model="ctrlPedido.Produto.cep" required />
     </div>
 
     <div class="col-sm-push-5">
         <label for="endereco" class="col-sm-2 control-label">Endereço:</label>
-        <input type="text" class="form-control" placeholder="Endreço" ng-model="ctrlPedido.endereco" required />
+        <input type="text" class="form-control" placeholder="Endreço" ng-model="ctrlPedido.Produto.endereco" required />
     </div>
 
     <div class="col-sm-push-4">
         <label for="DataPedido" class="col-sm-2 control-label">Data do pedido:</label>
-        <input type="text" class="form-control" placeholder="Data do pedido" ng-model="ctrlPedido.dataPedido" required />
+        <input type="text" class="form-control" placeholder="Data do pedido" ng-model="ctrlPedido.Produto.dataPedido" required />
     </div>
 
     <div class="col-sm-push-2">
