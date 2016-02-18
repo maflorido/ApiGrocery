@@ -19,7 +19,7 @@
 
     <div class="col-sm-push-4">
         <label for="cep" class="col-sm-2 control-label">CEP:</label>
-        <input type="text" class="form-control" placeholder="CEP" ng-model="ctrlPedido.cep" ng-blur="ctrlPedido.BuscarCep()" required />
+        <input type="text" class="form-control" placeholder="CEP" ng-model="ctrlPedido.cep" required />
     </div>
 
     <div class="col-sm-push-5">
@@ -43,6 +43,7 @@
         <th>Valor</th>
         <th>Quantidade</th>
         <th>Total</th>
+        <th></th>
     </tr>
     <tr ng-repeat="prod in ctrlPedido.produtosIncluidos">
         <td>{{prod.Nome}}</td>

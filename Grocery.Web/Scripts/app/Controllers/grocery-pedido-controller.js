@@ -2,7 +2,6 @@
 
     var self = this;
     this.produtosIncluidos = new Array();
-    var urlServicoCep = "http://cep.republicavirtual.com.br/web_cep.php?cep=valorcep&formato=jsonp";
 
     self.ListarPedido = function () {
         PedidoService.Listar().success(function (data) {
@@ -14,8 +13,9 @@
     self.Novo = function () {
         PedidoService.ListarProdutos($scope.configuracoesPagina).success(function (data) {
             self.produtosCombo = data;            
-        });
+        });        
 
+        
         $location.path('/pedido/novo');
     }
 
@@ -30,20 +30,6 @@
             return e.Id != produto.Id;
         });
                 
-    }
-
-    self.BuscarCep = function () {
-        var url = urlServicoCep.replace("valorcep", self.cep);
-
-        PedidoService.ConsultarCep(url).success(function (data) {
-            if (data.resultado != 0)
-                self.endereco = data.tipo_logradouro + " " + data.logradouro.split("-")[0].trim() + ", " + data.bairro + ", " + data.cidade + ", " + data.uf;
-            else
-                alert('CEP não encontrado!');
-        })
-        .error(function () {
-            alert("Ocorreu um erro ao utilizar o serviço de busca de CEP.");
-        });
     }
 
     self.Salvar = function () {        
