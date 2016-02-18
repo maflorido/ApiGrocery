@@ -7,17 +7,27 @@
         return produtos;
     }    
 
-    PedidoService.SalvarPedido = function (pedidos, cpf, cep, endereco, dataPedido) {        
+    PedidoService.SalvarPedido = function (pedidos, Pedido) {
+        
+        var listaProdutosPedido = new Array();
+        for (var i = 0; i < pedidos.length; i++) {
+            produtoAtual = pedidos[i].Produto;
+
+            listaProdutosPedido.push({
+                Id: produtoAtual.Id,
+                NomeProduto: produtoAtual.Nome,
+                Quantidade: pedidos[i].Quantidade,
+                Valor: produtoAtual.Valor
+            });
+        }
 
         var objetoInserir = {
-            CPF: cpf,
-            CEP: cep,
-            Endereco: endereco,
-            DataPedido: dataPedido,
-            ItensPedido: pedidos
+            CPF: Pedido.Cpf,
+            CEP: Pedido.Cep,
+            Endereco: Pedido.Endereco,
+            DataPedido: Pedido.DataPedido,
+            ItensPedido: listaProdutosPedido
         };
-
-        console.log(objetoInserir);
 
         return $http.post(urlBase + "/", objetoInserir);
     }

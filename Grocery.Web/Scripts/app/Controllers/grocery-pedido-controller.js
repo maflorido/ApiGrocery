@@ -40,7 +40,7 @@
 
     self.Salvar = function () {        
 
-        PedidoService.SalvarPedido(self.produtosIncluidos, self.Produto.cpf, self.Produto.cep, self.Produto.endereco, self.Produto.dataPedido).success(function () {
+        PedidoService.SalvarPedido(self.produtosIncluidos, self.Pedido).success(function () {
             alert('Pedido incluído!');
         }).error(function () {
             alert('Erro inesperado.');
