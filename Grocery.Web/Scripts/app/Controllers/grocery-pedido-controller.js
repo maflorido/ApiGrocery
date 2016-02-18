@@ -4,7 +4,7 @@
 
     self.PedidoController = function () {
         self.produtosIncluidos = new Array();
-        self.Produto = {};
+        self.Pedido = {};
 
     }
     
@@ -25,8 +25,9 @@
     }
 
     self.IncluirPedido = function () {        
-        var produtoPedido = PedidoService.CriarProdutoPedido(self.Produto.NomeProduto, self.Produto.quantidade);
-        self.produtosIncluidos.push(produtoPedido);
+        var produto = JSON.parse(self.Pedido.Produto);
+        self.Pedido.Produto = produto;
+        self.produtosIncluidos.push(self.Pedido);
     }
 
 

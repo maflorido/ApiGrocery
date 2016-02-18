@@ -1,7 +1,7 @@
 ﻿<form name="novoPedido">
     <div class="col-sm-push-5">
         <label for="produto" class="col-sm-2 control-label">Produto:</label>
-        <select id="combo-produto" class="form-control" ng-model="ctrlPedido.Produto.NomeProduto" required>
+        <select id="combo-produto" class="form-control" ng-model="ctrlPedido.Pedido.Produto" required>
             <option ng-repeat="option in ctrlPedido.produtosCombo" value="{{option}}">
                 {{option.Nome}}
             </option>
@@ -9,27 +9,27 @@
     </div>
     <div class="col-sm-push-7">
         <label for="quantidade" class="col-sm-2 control-label">Quantidade:</label>
-        <input type="text" class="form-control" placeholder="Quantidade" ng-model="ctrlPedido.Produto.quantidade" required />
+        <input type="text" class="form-control" placeholder="Quantidade" ng-model="ctrlPedido.Pedido.Quantidade" required />
     </div>
 
     <div class="col-sm-push-4">
         <label for="cpf" class="col-sm-2 control-label">CPF:</label>
-        <input type="text" class="form-control" placeholder="CPF" ng-model="ctrlPedido.Produto.cpf" required />
+        <input type="text" class="form-control" placeholder="CPF" ng-model="ctrlPedido.Pedido.Cpf" required />
     </div>
 
     <div class="col-sm-push-4">
         <label for="cep" class="col-sm-2 control-label">CEP:</label>
-        <input type="text" class="form-control" placeholder="CEP" ng-model="ctrlPedido.Produto.cep" required />
+        <input type="text" class="form-control" placeholder="CEP" ng-model="ctrlPedido.Pedido.Cep" required />
     </div>
 
     <div class="col-sm-push-5">
         <label for="endereco" class="col-sm-2 control-label">Endereço:</label>
-        <input type="text" class="form-control" placeholder="Endreço" ng-model="ctrlPedido.Produto.endereco" required />
+        <input type="text" class="form-control" placeholder="Endreço" ng-model="ctrlPedido.Pedido.Endereco" required />
     </div>
 
     <div class="col-sm-push-4">
         <label for="DataPedido" class="col-sm-2 control-label">Data do pedido:</label>
-        <input type="text" class="form-control" placeholder="Data do pedido" ng-model="ctrlPedido.Produto.dataPedido" required />
+        <input type="text" class="form-control" placeholder="Data do pedido" ng-model="ctrlPedido.Pedido.DataPedido" required />
     </div>
 
     <div class="col-sm-push-2">
@@ -45,13 +45,13 @@
         <th>Total</th>
         <th></th>
     </tr>
-    <tr ng-repeat="prod in ctrlPedido.produtosIncluidos">
-        <td>{{prod.Nome}}</td>
-        <td>{{prod.Valor}}</td>
-        <td>{{prod.Quantidade}}</td>
-        <td>{{prod.Quantidade * prod.Valor}}</td>
+    <tr ng-repeat="ped in ctrlPedido.produtosIncluidos">
+        <td>{{ped.Produto.Nome}}</td>
+        <td>{{ped.Produto.Valor}}</td>
+        <td>{{ped.Quantidade}}</td>
+        <td>{{ped.Quantidade * ped.Produto.Valor}}</td>
         <td>
-            <a href="" ng-click="ctrlPedido.RemoverProdutoPedido(prod)">Excluir</a>
+            <a href="" ng-click="ctrlPedido.RemoverProdutoPedido(ped)">Excluir</a>
         </td>
     </tr>
 </table>
