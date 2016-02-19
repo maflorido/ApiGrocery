@@ -11,7 +11,7 @@
     
     self.ListarPedido = function () {
         PedidoService.Listar().success(function (data) {            
-            $scope.pedidosCadastrados = data;
+            self.pedidosCadastrados = data;
         });        
 
         $location.path('/pedido/listar');
@@ -44,6 +44,7 @@
 
         PedidoService.SalvarPedido(self.produtosIncluidos, self.Pedido).success(function () {
             alert('Pedido incluído!');
+            self.PedidoController();
         }).error(function () {
             alert('Erro inesperado.');
         });

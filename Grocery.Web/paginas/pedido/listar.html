@@ -1,4 +1,4 @@
-﻿<table class="table table-striped table-bordered table-hover table-condensed">
+﻿<table class="table table-striped table-bordered table-hover table-condensed" ng-if="ctrlPedido.pedidosCadastrados.length>0">
     <tr>
         <th>CPF</th>
         <th>CEP</th>
@@ -6,7 +6,7 @@
         <th>Data</th>
         <td>Itens pedido</td>
     </tr>
-    <tr ng-repeat="ped in pedidosCadastrados">
+    <tr ng-repeat="ped in ctrlPedido.pedidosCadastrados">
         <td>{{ped.CPF}}</td>
         <td>{{ped.CEP}}</td>
         <td>{{ped.Endereco}}</td>
@@ -14,3 +14,7 @@
         <td><a href="" ng-click="ctrlPedido.ListarItens(ped.ItensPedido)">detalhes</a></td>
     </tr>
 </table>
+
+<span ng-if="ctrlPedido.pedidosCadastrados.length==0">
+    Não existem itens cadastrados.
+</span>
