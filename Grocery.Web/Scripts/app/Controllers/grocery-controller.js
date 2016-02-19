@@ -3,35 +3,37 @@
     $scope.configuracoesPagina = {
         SortBy: 'Nome',
         Reverse: false
-    };
+    };    
 
     var self = this;
-    
+
+    self.GroceryController = function () {
+        self.Produto = {};
+        self.Produtos = new Array();
+    }
+
+    self.GroceryController();
+
     self.Listar = function () {
         GetProducts();        
     }
 
     self.Cadastrar = function (rota) {
         $location.path(rota);
+        self.GroceryController();
     }
 
     self.Editar = function (id) {
 
         GroceryService.Editar(id).success(function (data) {
-            $scope.produto = data;
-
+            self.Produto = data;
             $location.path("/editar");
-        });        
+        });
     }
 
     self.PostEditar = function () {     
-        var objeto = {
-            Id: $scope.produto.Id,
-            Nome: $scope.produto.Nome,
-            Valor: $scope.produto.Valor
-        };
 
-        GroceryService.Salvar(objeto).success(function (data) {
+        GroceryService.Salvar(self.Produto).success(function (data) {
             alert('Produto editado.')
             GetProducts();
 
@@ -41,11 +43,8 @@
     }
 
     self.Salvar = function () {
-        var objeto = {
-            Nome: self.nome,
-            Valor: self.valor
-        };
-        GroceryService.Novo(objeto).success(function (data) {
+        console.log(self.Produto);
+        GroceryService.Novo(self.Produto).success(function (data) {
             alert("Produto incuído!");
             GetProducts();
         }).error(function (data) {
@@ -75,7 +74,8 @@
 
     function GetProducts() {
         GroceryService.GetProducts($scope.configuracoesPagina).success(function (pl) {
-            $scope.produtos = pl
+            self.Produtos = pl;
+            console.log(self.Produtos);
             $location.path("/listar");
         },
         function (errorPl) {
