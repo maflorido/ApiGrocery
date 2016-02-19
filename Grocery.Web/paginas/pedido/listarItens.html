@@ -5,10 +5,10 @@
         <th>Valor Produto</th>
         <th>Total</th>
     </tr>
-    <tr ng-repeat="item in ctrlPedido.produtosIncluidos">
-        <td>{{item.Produto.NomeProduto}}</td>
-        <td>{{item.quantidade}}</td>
-        <td>{{item.Produto.Valor}}</td>
+    <tr ng-repeat="item in ctrlPedido.produtosPedido">
+        <td>{{item.NomeProduto}}</td>
+        <td>{{item.Quantidade}}</td>
+        <td>{{item.Valor}}</td>
         <td>{{item.Total}}</td>        
     </tr>
 </table>

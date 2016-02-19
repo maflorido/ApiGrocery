@@ -24,7 +24,9 @@ namespace Grocery.Web.Controllers
         {
             var pedidos = contexto.PedidoRepository.Listar();            
 
-            return PedidoViewModel.ListarPedidosViewModel(pedidos);
+            var viewModel = PedidoViewModel.ListarPedidosViewModel(pedidos);
+
+            return viewModel;
         }
 
         [System.Web.Http.HttpPost]

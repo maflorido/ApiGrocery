@@ -5,13 +5,15 @@
     self.PedidoController = function () {
         self.produtosIncluidos = new Array();
         self.Pedido = {};
+        self.produtosPedido = new Array();
 
     }
     
     self.ListarPedido = function () {
-        PedidoService.Listar().success(function (data) {
+        PedidoService.Listar().success(function (data) {            
             $scope.pedidosCadastrados = data;
-        });
+        });        
+
         $location.path('/pedido/listar');
     }
 
@@ -47,12 +49,15 @@
         });
     }
 
-    self.ListarItens = function (pedidos) {
-        this.pedidos = pedidos;
+    self.ListarItens = function (pedidos) {        
+
+        self.produtosPedido = pedidos;        
 
         ngDialog.open({
             template: '/paginas/pedido/listarItens.html',            
-            scope: $scope
+            scope: $scope,
+            controller: "pedidoController",
+            controllerAs: "ctrlPedido"
         });
     }
 });
